@@ -1,7 +1,13 @@
 [build]
   publish = "dist/confin"
   command = "ng build --prod"
+
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/de/*"
+  to = "/de/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/en/*"
+  to = "/en/index.html"
   status = 200
