@@ -1,5 +1,15 @@
-<div appTheme>
-    <div style="background: var(--background)">Test</div>
-</div>
+<div class="app" appTheme>
+    <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="start center" class="toolbar">
+        <h1>
+            Confin
+        </h1>
+        <a routerLink="/login" class="navigation-link">Login</a>
+        <a routerLink="/dashboard" class="navigation-link">Dashboard</a>
+        <div fxFlex>
+            <!-- spacer -->
+        </div>
+        <mat-slide-toggle class="theme-slider" [checked]="isLightThemeActive" (change)="toggleTheme()"></mat-slide-toggle>
+    </mat-toolbar>
 
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ThemeService } from './theme/theme.service';
 import { Theme } from './theme/Theme';
 
@@ -7,12 +7,17 @@ import { Theme } from './theme/Theme';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.styl']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
+    public isLightThemeActive: boolean = true;
+
     constructor(private themeService: ThemeService) {}
 
-    public ngOnInit(): void {
-        setTimeout(() => {
+    public toggleTheme(): void {
+        this.isLightThemeActive = !this.isLightThemeActive;
+        if (this.isLightThemeActive) {
+            this.themeService.setTheme(Theme.Light);
+        } else {
             this.themeService.setTheme(Theme.Dark);
-        }, 4000);
+        }
     }
 }

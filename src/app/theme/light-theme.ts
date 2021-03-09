@@ -4,6 +4,7 @@ export const lightTheme: IThemeOptions = {
     name: Theme.Light,
     customProperties: {
         [AvailableProperties.Background]: '#fefefe',
-        [AvailableProperties.Color]: '#fefefe',
+        [AvailableProperties.FontColor]: '#24292e',
+        [AvailableProperties.NavigationColor]: '#ffffff',
     }
 };

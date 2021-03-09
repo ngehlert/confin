@@ -1,6 +1,7 @@
 export enum AvailableProperties {
     Background = '--background',
-    Color = '--color',
+    FontColor = '--font-color',
+    NavigationColor = '--navigation-color'
 }
 
 export enum Theme {

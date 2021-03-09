@@ -1,6 +1,46 @@
 :root
     --background: #f6f7f9
-    --on-background: #000
     --primary: #1976d2
-    --on-primary: '#000'
+    --font-color: #24292e
+    --navigation-color: #ffffff
 
+.theme-slider .mat-slide-toggle-thumb
+    width: 26px
+    height: 26px
+    background-color: #30363D
+.theme-slider .mat-slide-toggle-thumb-container
+    width: 26px
+    height: 26px
+
+.theme-slider .mat-slide-toggle-thumb-container
+    top: -6px
+
+.theme-slider .mat-slide-toggle-thumb:before
+    font-family: 'Material Icons'
+    font-weight: normal
+    font-style: normal
+    line-height: 1
+    letter-spacing: normal
+    text-transform: none
+    font-size: 22px
+    width: 22px
+    height: 22px
+    content: 'dark_mode'
+    color: #FCDF6B
+    position: absolute
+    top: 3px
+    left: 2px
+
+.theme-slider.mat-checked .mat-slide-toggle-thumb:before
+    content: 'light_mode'
+    color: #FFEA00;
+
+.theme-slider.mat-checked .mat-slide-toggle-thumb
+    background-color: #03A9F4
+
+.theme-slider .mat-slide-toggle-bar
+.theme-slider.mat-checked .mat-slide-toggle-bar
+    background-color: rgba(0, 0, 0, 0.38)
+
+.theme-slider.mat-checked .mat-ripple-element
+    background-color: black
