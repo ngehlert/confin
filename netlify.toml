@@ -11,3 +11,20 @@
   from = "/en/*"
   to = "/en/index.html"
   status = 200
+
+[[redirects]]
+   from = "/"
+   to = "/de"
+   status = 302
+   conditions = {Language = ["de"]}
+
+[[redirects]]
+   from = "/"
+   to = "/en"
+   status = 302
+   conditions = {Language = ["en"]}
+
+[[redirects]]
+   from = "/"
+   to = "/en"
+   status = 302
