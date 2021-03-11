@@ -30,9 +30,9 @@ export class AppComponent {
         this.iconRegistry.addSvgIconLiteral(
             'enFlag', sanitizer.bypassSecurityTrustHtml(enFlag));
         if (this.locale === 'de') {
-            this.selectedFlag = 'de';
+            this.selectedFlag = 'deFlag';
         } else if (this.locale === 'en') {
-            this.selectedFlag = 'en';
+            this.selectedFlag = 'enFlag';
         }
     }
 
