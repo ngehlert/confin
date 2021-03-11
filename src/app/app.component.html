@@ -9,7 +9,7 @@
             <!-- spacer -->
         </div>
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Language selection">
-            <mat-icon svgIcon="deFlag"></mat-icon>
+            <mat-icon [svgIcon]="selectedFlag"></mat-icon>
         </button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="changeToGerman()">
