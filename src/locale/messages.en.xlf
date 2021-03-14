@@ -2,12 +2,52 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="764317357050559468" datatype="html">
-        <source>login works!</source>
-        <target state="new">english login works!</target>
+      <trans-unit id="3818424122795122801" datatype="html">
+        <source>LANGUAGE_SELECTION_GERMAN</source>
+        <target state="new">(MISSING): LANGUAGE_SELECTION_GERMAN</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3505872775712790775" datatype="html">
+        <source>LANGUAGE_SELECTION_ENGLISH</source>
+        <target state="new">(MISSING): LANGUAGE_SELECTION_ENGLISH</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4553107583797591048" datatype="html">
+        <source>SETTINGS_MENU_LOGOUT</source>
+        <target state="new">(MISSING): SETTINGS_MENU_LOGOUT</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2255656301373777179" datatype="html">
+        <source>LOGIN_FORM_USER_NAME</source>
+        <target state="new">(MISSING): LOGIN_FORM_USER_NAME</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/login/login.component.html</context>
-          <context context-type="linenumber">1</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8386180113114394359" datatype="html">
+        <source>LOGIN_FORM_USER_PASSWORD</source>
+        <target state="new">(MISSING): LOGIN_FORM_USER_PASSWORD</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8230770021040498252" datatype="html">
+        <source>LOGIN_FORM_SUBMIT_BUTTON</source>
+        <target state="new">(MISSING): LOGIN_FORM_SUBMIT_BUTTON</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
     </body>

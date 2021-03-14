@@ -23,6 +23,7 @@
         "@angular/platform-browser": "11.2.4",
         "@angular/platform-browser-dynamic": "11.2.4",
         "@angular/router": "11.2.4",
+        "@auth0/angular-jwt": "^5.0.2",
         "rxjs": "6.6.0",
         "svg-country-flags": "^1.2.10",
         "tslib": "2.0.0",

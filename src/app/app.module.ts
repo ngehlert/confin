@@ -11,6 +11,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMenuModule } from '@angular/material/menu';
+import { JwtModule } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
+
+export const tokenGetter: () => string | null = (): string | null => sessionStorage.getItem(environment.tokenKey);
 
 @NgModule({
     imports: [
@@ -24,6 +28,14 @@ import { MatMenuModule } from '@angular/material/menu';
         MatIconModule,
         MatSlideToggleModule,
         MatMenuModule,
+        JwtModule.forRoot({
+            config: {
+                tokenGetter,
+                allowedDomains: ['localhost:4200', 'confin-api.ngehlert.de'],
+                disallowedRoutes: ['https://confin-api.ngehlert.de/index.php/auth'],
+                throwNoTokenError: true,
+            },
+        }),
     ],
     providers: [],
     bootstrap: [AppComponent],

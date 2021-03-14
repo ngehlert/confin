@@ -1,7 +1,10 @@
 export enum AvailableProperties {
     Background = '--background',
     FontColor = '--font-color',
-    NavigationColor = '--navigation-color'
+    SecondaryFontColor = '--secondary-font-color',
+    NavigationColor = '--navigation-color',
+    BorderColor = '--border-color',
+    InputHoverBorderColor = '--input-hover-border-color',
 }
 
 export enum Theme {

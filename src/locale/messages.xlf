@@ -2,11 +2,46 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="key" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="764317357050559468" datatype="html">
-        <source>login works!</source>
+      <trans-unit id="3818424122795122801" datatype="html">
+        <source>LANGUAGE_SELECTION_GERMAN</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3505872775712790775" datatype="html">
+        <source>LANGUAGE_SELECTION_ENGLISH</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4553107583797591048" datatype="html">
+        <source>SETTINGS_MENU_LOGOUT</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2255656301373777179" datatype="html">
+        <source>LOGIN_FORM_USER_NAME</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/login/login.component.html</context>
-          <context context-type="linenumber">1</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8386180113114394359" datatype="html">
+        <source>LOGIN_FORM_USER_PASSWORD</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8230770021040498252" datatype="html">
+        <source>LOGIN_FORM_SUBMIT_BUTTON</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
     </body>

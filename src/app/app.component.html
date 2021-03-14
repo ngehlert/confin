@@ -1,17 +1,15 @@
 <div class="app" appTheme>
     <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="start center" class="toolbar">
-        <h1>
-            Confin
-        </h1>
-        <a routerLink="/login" class="navigation-link">Login</a>
-        <a routerLink="/dashboard" class="navigation-link">Dashboard</a>
+        <a [routerLink]="isLoggedIn() ? 'dashboard' : '/'" class="navigation-link">Confin</a>
+        <a routerLink="/login" class="navigation-link" *ngIf="!isLoggedIn()">Login</a>
+        <a routerLink="/dashboard" class="navigation-link" *ngIf="isLoggedIn()">Dashboard</a>
         <div fxFlex>
             <!-- spacer -->
         </div>
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Language selection">
+        <button mat-icon-button [matMenuTriggerFor]="languageMenu" aria-label="Language selection">
             <mat-icon [svgIcon]="selectedFlag"></mat-icon>
         </button>
-        <mat-menu #menu="matMenu">
+        <mat-menu #languageMenu="matMenu">
             <button mat-menu-item (click)="changeToGerman()">
                 <mat-icon svgIcon="deFlag"></mat-icon>
                 <span i18n>LANGUAGE_SELECTION_GERMAN</span>
@@ -22,6 +20,15 @@
             </button>
         </mat-menu>
         <mat-slide-toggle class="theme-slider" [checked]="isLightThemeActive" (change)="toggleTheme()"></mat-slide-toggle>
+        <button mat-icon-button [matMenuTriggerFor]="settingsMenu" aria-label="Settings menu" *ngIf="isLoggedIn()">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #settingsMenu="matMenu">
+            <button mat-menu-item (click)="logout()">
+              <mat-icon color="warn">logout</mat-icon>
+              <span i18n>SETTINGS_MENU_LOGOUT</span>
+            </button>
+          </mat-menu>
     </mat-toolbar>
 
     <router-outlet></router-outlet>
