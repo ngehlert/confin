@@ -5,6 +5,11 @@ import { IsLoggedInGuard } from './is-logged-in-guard.guard';
 
 const routes: Routes = [
     {
+        path: '',
+        loadChildren: (): any => import('./home/home.module')
+            .then((m: any) => m.HomeModule),
+    },
+    {
         path: 'login',
         loadChildren: (): any => import('./login/login.module')
             .then((m: any) => m.LoginModule),

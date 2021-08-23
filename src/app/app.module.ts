@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMenuModule } from '@angular/material/menu';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 export const tokenGetter: () => string | null = (): string | null => sessionStorage.getItem(environment.tokenKey);
 
@@ -28,19 +29,22 @@ export const tokenGetter: () => string | null = (): string | null => sessionStor
         MatIconModule,
         MatSlideToggleModule,
         MatMenuModule,
+        HttpClientModule,
         JwtModule.forRoot({
             config: {
                 tokenGetter,
-                allowedDomains: ['localhost:4200', 'confin-api.ngehlert.de'],
-                disallowedRoutes: ['https://confin-api.ngehlert.de/index.php/auth'],
+                allowedDomains: ['confin-api.ngehlert.de'],
+                disallowedRoutes: ['https://confin-api.ngehlert.de/index.php/auth', /.*de\.svg$/, /.*gb\.svg$/],
                 throwNoTokenError: true,
             },
         }),
     ],
-    providers: [],
+    providers: [
+        {provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR'}
+    ],
     bootstrap: [AppComponent],
     declarations: [
-        AppComponent
+        AppComponent,
     ],
 })
 export class AppModule { }

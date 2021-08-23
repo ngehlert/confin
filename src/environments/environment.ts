@@ -4,7 +4,7 @@
 
 export const environment: IEnvironment = {
     production: false,
-    apiUrl: 'https://confin-api.ngehlert.de/index.php/',
+    apiUrl: 'https://confin-api.ngehlert.de/index.php',
     tokenKey: 'access_token',
     themeKey: 'selectedTheme',
 };

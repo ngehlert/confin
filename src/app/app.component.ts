@@ -1,10 +1,6 @@
 import { Component, Inject, LOCALE_ID } from '@angular/core';
 import { ThemeService } from './theme/theme.service';
 import { Theme } from './theme/Theme';
-// @ts-ignore
-import deFlag from '!!raw-loader!/node_modules/svg-country-flags/svg/de.svg';
-// @ts-ignore
-import enFlag from '!!raw-loader!/node_modules/svg-country-flags/svg/gb.svg';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -28,10 +24,10 @@ export class AppComponent {
         private router: Router,
         private jwtHelper: JwtHelperService,
     ) {
-        this.iconRegistry.addSvgIconLiteral(
-            'deFlag', sanitizer.bypassSecurityTrustHtml(deFlag));
-        this.iconRegistry.addSvgIconLiteral(
-            'enFlag', sanitizer.bypassSecurityTrustHtml(enFlag));
+        this.iconRegistry.addSvgIcon(
+            'deFlag', sanitizer.bypassSecurityTrustResourceUrl('assets/de.svg'));
+        this.iconRegistry.addSvgIcon(
+            'enFlag', sanitizer.bypassSecurityTrustResourceUrl('assets/gb.svg'));
         if (this.locale === 'de') {
             this.selectedFlag = 'deFlag';
         } else if (this.locale === 'en') {
