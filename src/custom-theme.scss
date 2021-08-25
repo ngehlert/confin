@@ -33,6 +33,15 @@ $confin-theme: mat-light-theme((
 // that you are using.
 @include angular-material-theme($confin-theme);
 
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

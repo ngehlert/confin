@@ -1,5 +1,5 @@
 <section>
-    <mat-card *ngFor="let account of accounts$ | async" class="mat-elevation-z3">
+    <mat-card *ngFor="let account of accounts$ | async" class="mat-elevation-z3" (click)="loadBookings(account.id)">
         <mat-card-header>
             <mat-card-title>{{account.name}}</mat-card-title>
         </mat-card-header>
@@ -7,4 +7,14 @@
             <p [appColoredCurrency]="account.balance">{{account.balance}}</p>
         </mat-card-content>
     </mat-card>
+</section>
+<section #tableSection *ngIf="hasTableData">
+    <ag-grid-angular
+        #agGrid
+        class="ag-theme-alpine"
+        [rowData]="tableData | async"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+    >
+    </ag-grid-angular>
 </section>
