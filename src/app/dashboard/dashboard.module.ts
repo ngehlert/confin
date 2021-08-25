@@ -6,6 +6,9 @@ import { DashboardComponent } from './dashboard.component';
 import { MatCardModule } from '@angular/material/card';
 import { UtilsModule } from '../utils/utils.module';
 import { AgGridModule } from 'ag-grid-angular';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
     declarations: [
@@ -15,6 +18,9 @@ import { AgGridModule } from 'ag-grid-angular';
         CommonModule,
         DashboardRoutingModule,
         MatCardModule,
+        MatIconModule,
+        MatButtonModule,
+        MatRippleModule,
         UtilsModule,
         AgGridModule.withComponents([]),
     ],

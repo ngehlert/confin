@@ -17,11 +17,18 @@ interface Booking {
     id: number;
     name: string;
     price: number;
+}
 
+interface Category {
+    id: number;
+    name: string;
+    children: Array<Category>;
+    parentId: number;
 }
 
 export {
     RequestResult,
     Account,
     Booking,
+    Category,
 }

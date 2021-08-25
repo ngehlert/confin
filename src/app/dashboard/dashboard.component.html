@@ -1,11 +1,30 @@
 <section>
-    <mat-card *ngFor="let account of accounts$ | async" class="mat-elevation-z3" (click)="loadBookings(account.id)">
+    <mat-card
+        *ngFor="let account of accounts$ | async"
+        class="mat-elevation-z3"
+        (click)="loadBookings(account.id)"
+        aria-label="list with all given accounts and current balance"
+        matRipple
+    >
         <mat-card-header>
-            <mat-card-title>{{account.name}}</mat-card-title>
+            <mat-card-title aria-label="account name">{{account.name}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <p [appColoredCurrency]="account.balance">{{account.balance}}</p>
+            <p [appColoredCurrency]="account.balance" aria-label="account balance">{{account.balance}}</p>
         </mat-card-content>
+        <mat-card-footer></mat-card-footer>
+    </mat-card>
+    <mat-card
+        class="mat-elevation-z3"
+        matRipple
+    >
+        <mat-card-content>
+            <p aria-label="card to add new account" i18n>DASHBOARD_ADD_NEW_ACCOUNT</p>
+            <button mat-mini-fab color="primary" aria-label="Icon button to add new account">
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-card-content>
+        <mat-card-footer></mat-card-footer>
     </mat-card>
 </section>
 <section #tableSection *ngIf="hasTableData">

@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Account, Booking, RequestResult } from '../types';
+import { Account, Booking, Category, RequestResult } from '../types';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { ColDef } from 'ag-grid-community';
 import { startOfDay, subDays, addDays, format } from 'date-fns';
 import { ValueFormatterParams } from 'ag-grid-community/dist/lib/entities/colDef';
@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
     public ngOnInit(): void {
         this.accounts$ = this.http.get<RequestResult<Array<Account>>>(
             `${environment.apiUrl}/accounts`
-        ).pipe(map((result: RequestResult<Array<Account>>) => result.data));
+        ).pipe(map((result: RequestResult<Array<Account>>) => result.data.filter((account: Account) => account.visible)));
     }
 
     public loadBookings(accountId: number): void {
@@ -57,11 +57,41 @@ export class DashboardComponent implements OnInit {
         const toDate: string = format(addDays(new Date(), 7), 'yyyy-MM-dd');
         this.tableData = this.http.get<RequestResult<Array<Booking>>>(
             `${environment.apiUrl}/bookings?from=${fromDate}&to=${toDate}&accountId=${accountId}`
-        ).pipe(map((result: RequestResult<Array<Booking>>): Array<TableEntry> => {
-            return result.data.map((booking: Booking) => {
-                return {booking, date: startOfDay(new Date(booking.date))}
-            });
-        }));
+        ).pipe(
+            map((result: RequestResult<Array<Booking>>): Array<TableEntry> => {
+                return result.data
+                    .map((booking: Booking) => {
+                        return {booking, date: startOfDay(new Date(booking.date))}
+                    });
+            }),
+            switchMap((tableEntries: Array<TableEntry>) => {
+                const categoryIds: Set<number> = new Set(tableEntries.map((entry: TableEntry) => entry.booking.category_id));
+                categoryIds.delete(0);
+
+                return this.loadCategories(categoryIds).pipe(map((categories: Array<Category>) => {
+                    const categoriesById: Map<number, Category> = new Map();
+                    categories.forEach((category: Category) => categoriesById.set(category.id, category));
+                    return tableEntries.map((entry: TableEntry) => {
+                        if (entry.booking.category_id !== 0) {
+                            entry.category = categoriesById.get(entry.booking.category_id);
+                        }
+
+                        return entry;
+                    })
+                }))
+            })
+        );
+    }
+
+    private loadCategories(categoryIds: Set<number>): Observable<Array<Category>> {
+        categoryIds.delete(0);
+        if (categoryIds.size === 0) {
+            return of([]);
+        }
+
+        return this.http.get<RequestResult<Array<Category>>>(
+            `${environment.apiUrl}/categories/${Array.from(categoryIds).join(',')}`
+        ).pipe(map((result: RequestResult<Array<Category>>) => result.data));
     }
 
     private getColumnDefs(): Array<ColDef> {
@@ -75,7 +105,7 @@ export class DashboardComponent implements OnInit {
             },
             {
                 headerName: $localize`COLUMN_HEADER_CATEGORY`,
-                field: 'booking.category_id',
+                field: 'category.name',
                 filter: 'agTextColumnFilter',
                 minWidth: 150,
                 flex: 1,
@@ -113,4 +143,5 @@ export class DashboardComponent implements OnInit {
 interface TableEntry {
     booking: Booking;
     date: Date;
+    category?: Category;
 }

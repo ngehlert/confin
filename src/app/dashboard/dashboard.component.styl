@@ -9,6 +9,23 @@ section
     mat-card
         cursor: pointer
 
+        &:last-child
+            min-height: 52px
+            max-width: 500px
+
+            mat-card-content
+                display: grid
+                grid-template-columns: 1fr auto
+                align-items: center
+                justify-items center
+                grid-gap: 0.5rem
+                margin: 0
+                height: 100%
+
+                p
+                    margin: 0
+                    font-style: italic
+
     p
         text-align: right
 
