@@ -1,13 +1,16 @@
 <section>
     <mat-card
-        *ngFor="let account of accounts$ | async"
+        *ngFor="let account of accounts$ | async; let i = index;"
         class="mat-elevation-z3"
         (click)="loadBookings(account.id)"
-        aria-label="list with all given accounts and current balance"
+        (keyup.enter)="loadBookings(account.id)"
+        [attr.aria-labelledby]="'account-name-' + i"
         matRipple
+        tabindex="1"
+        [onFocus]="['mat-elevation-z6']"
     >
         <mat-card-header>
-            <mat-card-title aria-label="account name">{{account.name}}</mat-card-title>
+            <mat-card-title [attr.id]="'account-name-' + i">{{account.name}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <p [appColoredCurrency]="account.balance" aria-label="account balance">{{account.balance}}</p>
@@ -17,6 +20,8 @@
     <mat-card
         class="mat-elevation-z3"
         matRipple
+        tabindex="1"
+        [onFocus]="['mat-elevation-z6']"
     >
         <mat-card-content>
             <p aria-label="card to add new account" i18n>DASHBOARD_ADD_NEW_ACCOUNT</p>

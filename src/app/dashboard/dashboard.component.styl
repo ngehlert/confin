@@ -8,6 +8,12 @@ section
 
     mat-card
         cursor: pointer
+        border: 4px solid transparent
+
+        &:hover
+        &:focus
+            border: 4px dashed var(--border-color)
+            outline: none
 
         &:last-child
             min-height: 52px

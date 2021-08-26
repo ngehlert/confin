@@ -1,9 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Account, Booking, Category, RequestResult } from '../types';
 import { Observable, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, publishReplay, refCount, switchMap, take } from 'rxjs/operators';
 import { ColDef } from 'ag-grid-community';
 import { startOfDay, subDays, addDays, format } from 'date-fns';
 import { ValueFormatterParams } from 'ag-grid-community/dist/lib/entities/colDef';
@@ -34,25 +34,57 @@ export class DashboardComponent implements OnInit {
     constructor(
         private http: HttpClient,
         private currencyPipe: CurrencyPipe,
+        private changeDetector: ChangeDetectorRef,
     ) { }
 
     public ngOnInit(): void {
-        this.accounts$ = this.http.get<RequestResult<Array<Account>>>(
-            `${environment.apiUrl}/accounts`
-        ).pipe(map((result: RequestResult<Array<Account>>) => result.data.filter((account: Account) => account.visible)));
+        this.loadAccounts();
     }
 
     public loadBookings(accountId: number): void {
         if (!accountId) {
             return;
         }
-        this.hasTableData = true;
-        setTimeout(() => {
-            if (this.tableSection) {
-                window.scrollTo({ top: this.tableSection.nativeElement.offsetTop, behavior: 'smooth' })
-            }
-        });
+        this.showTable();
+        this.scrollToTable();
+        this.updateTableData(accountId);
+        this.selectFirstTableCell();
+    }
 
+    private showTable(): void {
+        this.hasTableData = true;
+        this.changeDetector.detectChanges();
+    }
+
+    private loadAccounts(): void {
+        this.accounts$ = this.http.get<RequestResult<Array<Account>>>(
+            `${environment.apiUrl}/accounts`
+        ).pipe(
+            map((result: RequestResult<Array<Account>>) => result.data.filter((account: Account) => account.visible)),
+            publishReplay(1),
+            refCount(),
+        );
+    }
+
+    private scrollToTable(): void {
+        if (this.tableSection) {
+            window.scrollTo({ top: this.tableSection.nativeElement.offsetTop, behavior: 'smooth' });
+        }
+    }
+
+    private selectFirstTableCell(): void {
+        if (this.agGrid) {
+            this.agGrid.rowDataChanged.pipe(take(1)).subscribe(() => {
+                setTimeout(() => {
+                    if (this.agGrid) {
+                        this.agGrid.api.setFocusedCell(0, 'name');
+                    }
+                }, 200)
+            });
+        }
+    }
+
+    private updateTableData(accountId: number): void {
         const fromDate: string = format(subDays(new Date(), 30), 'yyyy-MM-dd');
         const toDate: string = format(addDays(new Date(), 7), 'yyyy-MM-dd');
         this.tableData = this.http.get<RequestResult<Array<Booking>>>(
@@ -97,6 +129,7 @@ export class DashboardComponent implements OnInit {
     private getColumnDefs(): Array<ColDef> {
         return [
             {
+                colId: 'name',
                 headerName: $localize`COLUMN_HEADER_NAME`,
                 field: 'booking.name',
                 filter: 'agTextColumnFilter',
@@ -104,6 +137,7 @@ export class DashboardComponent implements OnInit {
                 flex: 2,
             },
             {
+                colId: 'category',
                 headerName: $localize`COLUMN_HEADER_CATEGORY`,
                 field: 'category.name',
                 filter: 'agTextColumnFilter',
@@ -111,6 +145,7 @@ export class DashboardComponent implements OnInit {
                 flex: 1,
             },
             {
+                colId: 'date',
                 headerName: $localize`COLUMN_HEADER_DATE`,
                 field: 'date',
                 filter: 'agDateColumnFilter',
@@ -124,6 +159,7 @@ export class DashboardComponent implements OnInit {
                 sort: 'desc',
             },
             {
+                colId: 'price',
                 headerName: $localize`COLUMN_HEADER_PRICE`,
                 field: 'booking.price',
                 filter: 'agNumberColumnFilter',
