@@ -3,7 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Account, Booking, Category, RequestResult } from '../types';
 import { Observable, of } from 'rxjs';
-import { map, publishReplay, refCount, switchMap, take } from 'rxjs/operators';
+import { finalize, map, publishReplay, refCount, switchMap, take } from 'rxjs/operators';
 import { ColDef } from 'ag-grid-community';
 import { startOfDay, subDays, addDays, format } from 'date-fns';
 import { ValueFormatterParams } from 'ag-grid-community/dist/lib/entities/colDef';
@@ -30,6 +30,9 @@ export class DashboardComponent implements OnInit {
     }
     public tableData: Observable<Array<TableEntry>> = of([]);
     public hasTableData: boolean = false;
+    public areAccountsLoading: boolean = false;
+
+    private currentlyVisibleAccount: number | null = null;
 
     constructor(
         private http: HttpClient,
@@ -45,10 +48,15 @@ export class DashboardComponent implements OnInit {
         if (!accountId) {
             return;
         }
+        this.currentlyVisibleAccount = accountId;
         this.showTable();
         this.scrollToTable();
         this.updateTableData(accountId);
         this.selectFirstTableCell();
+    }
+
+    public addBooking(): void {
+        console.log(this.currentlyVisibleAccount);
     }
 
     private showTable(): void {
@@ -57,12 +65,14 @@ export class DashboardComponent implements OnInit {
     }
 
     private loadAccounts(): void {
+        this.areAccountsLoading = true;
         this.accounts$ = this.http.get<RequestResult<Array<Account>>>(
             `${environment.apiUrl}/accounts`
         ).pipe(
             map((result: RequestResult<Array<Account>>) => result.data.filter((account: Account) => account.visible)),
             publishReplay(1),
             refCount(),
+            finalize(() => { this.areAccountsLoading = false; }),
         );
     }
 
@@ -85,9 +95,13 @@ export class DashboardComponent implements OnInit {
     }
 
     private updateTableData(accountId: number): void {
+        if (!this.agGrid) {
+            return;
+        }
+        this.agGrid.api.showLoadingOverlay();
         const fromDate: string = format(subDays(new Date(), 30), 'yyyy-MM-dd');
         const toDate: string = format(addDays(new Date(), 7), 'yyyy-MM-dd');
-        this.tableData = this.http.get<RequestResult<Array<Booking>>>(
+        this.http.get<RequestResult<Array<Booking>>>(
             `${environment.apiUrl}/bookings?from=${fromDate}&to=${toDate}&accountId=${accountId}`
         ).pipe(
             map((result: RequestResult<Array<Booking>>): Array<TableEntry> => {
@@ -111,8 +125,13 @@ export class DashboardComponent implements OnInit {
                         return entry;
                     })
                 }))
-            })
-        );
+            }),
+            take(1),
+        ).subscribe((result: Array<TableEntry>) => {
+            if (this.agGrid) {
+                this.agGrid.api.setRowData(result);
+            }
+        });
     }
 
     private loadCategories(categoryIds: Set<number>): Observable<Array<Category>> {

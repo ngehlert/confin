@@ -1,4 +1,19 @@
-<section>
+<section class="columns">
+    <ng-template [ngIf]="areAccountsLoading">
+        <mat-card
+            class="mat-elevation-z3 loading"
+            aria-label="loading placeholder"
+            *ngFor="let e of [].constructor(2)"
+        >
+            <mat-card-header>
+                <mat-card-title>&nbsp;</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <span class="cdk-visually-hidden">Loading</span>
+                <p>&nbsp;</p>
+            </mat-card-content>
+        </mat-card>
+    </ng-template>
     <mat-card
         *ngFor="let account of accounts$ | async; let i = index;"
         class="mat-elevation-z3"
@@ -18,7 +33,7 @@
         <mat-card-footer></mat-card-footer>
     </mat-card>
     <mat-card
-        class="mat-elevation-z3"
+        class="mat-elevation-z3 add-new"
         matRipple
         tabindex="1"
         [onFocus]="['mat-elevation-z6']"
@@ -41,4 +56,12 @@
         [defaultColDef]="defaultColDef"
     >
     </ag-grid-angular>
+    <button
+        mat-fab
+        color="primary"
+        aria-label="Button to create a new booking entry for the current visible account"
+        (click)="addBooking()"
+    >
+        <mat-icon>add</mat-icon>
+    </button>
 </section>
