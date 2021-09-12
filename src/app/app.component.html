@@ -1,7 +1,8 @@
 <div class="app" appTheme>
     <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="start center" class="toolbar">
-        <a [routerLink]="isLoggedIn() ? 'dashboard' : '/'" class="navigation-link">Confin</a>
-        <a routerLink="/login" class="navigation-link" *ngIf="!isLoggedIn()">Login</a>
+        <a [routerLink]="isLoggedIn() ? 'dashboard' : '/'" class="navigation-link">
+            <img src="assets/logo-transparent.png"/>
+        </a>
         <a routerLink="/dashboard" class="navigation-link" *ngIf="isLoggedIn()">Dashboard</a>
         <div fxFlex>
             <!-- spacer -->
@@ -32,4 +33,8 @@
     </mat-toolbar>
 
     <router-outlet></router-outlet>
+    <footer>
+        footer stuff
+    </footer>
 </div>
+

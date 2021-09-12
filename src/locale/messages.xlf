@@ -6,56 +6,126 @@
         <source>LANGUAGE_SELECTION_GERMAN</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3505872775712790775" datatype="html">
         <source>LANGUAGE_SELECTION_ENGLISH</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4553107583797591048" datatype="html">
         <source>SETTINGS_MENU_LOGOUT</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3354466900820431469" datatype="html">
         <source>DASHBOARD_ADD_NEW_ACCOUNT</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3158976112839614934" datatype="html">
         <source>COLUMN_HEADER_NAME</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.ts</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">152</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8272027461249998925" datatype="html">
         <source>COLUMN_HEADER_CATEGORY</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.ts</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">160</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4699875898138712015" datatype="html">
         <source>COLUMN_HEADER_DATE</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.ts</context>
-          <context context-type="linenumber">84</context>
+          <context context-type="linenumber">168</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6950890208781667267" datatype="html">
         <source>COLUMN_HEADER_PRICE</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.ts</context>
-          <context context-type="linenumber">97</context>
+          <context context-type="linenumber">182</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4477152207460814900" datatype="html">
+        <source>HOME_LOGIN_LABEL</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6647800795819631239" datatype="html">
+        <source>HOME_SIGN_UP_LABEL</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8851498942119985027" datatype="html">
+        <source>HOME_BENEFITS_EASY_TITLE</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="728376619165122030" datatype="html">
+        <source>HOME_BENEFITS_EASY_DESCRIPTION</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8154366183437336869" datatype="html">
+        <source>HOME_BENEFITS_CATEGORIES_TITLE</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8036300839386196399" datatype="html">
+        <source>HOME_BENEFITS_CATEGORIES_DESCRIPTION</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8735197420322070818" datatype="html">
+        <source>HOME_BENEFITS_BUDGET_PLAN_TITLE</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9131046020793473004" datatype="html">
+        <source>HOME_BENEFITS_BUDGET_PLAN_DESCRIPTION</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7658773859094945926" datatype="html">
+        <source>HOME_BENEFITS_AVAILABILITY_TITLE</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1335292547492748042" datatype="html">
+        <source>HOME_BENEFITS_AVAILABILITY_DESCRIPTION</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2255656301373777179" datatype="html">

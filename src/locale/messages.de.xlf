@@ -7,7 +7,7 @@
         <target state="new">Deutsch</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3505872775712790775" datatype="html">
@@ -15,7 +15,7 @@
         <target state="new">Englisch</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4553107583797591048" datatype="html">
@@ -23,7 +23,7 @@
         <target state="new">Logout</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3354466900820431469" datatype="html">
@@ -31,7 +31,7 @@
         <target state="new">Neues Konto hinzufügen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3158976112839614934" datatype="html">
@@ -39,7 +39,7 @@
         <target state="new">Name</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.ts</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">152</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8272027461249998925" datatype="html">
@@ -47,7 +47,7 @@
         <target state="new">Kategorie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.ts</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">160</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4699875898138712015" datatype="html">
@@ -55,7 +55,7 @@
         <target state="new">Datum</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.ts</context>
-          <context context-type="linenumber">84</context>
+          <context context-type="linenumber">168</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6950890208781667267" datatype="html">
@@ -63,7 +63,87 @@
         <target state="new">Wert</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/dashboard/dashboard.component.ts</context>
-          <context context-type="linenumber">97</context>
+          <context context-type="linenumber">182</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4477152207460814900" datatype="html">
+        <source>HOME_LOGIN_LABEL</source>
+        <target state="new">Anmelden</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6647800795819631239" datatype="html">
+        <source>HOME_SIGN_UP_LABEL</source>
+        <target state="new">Registrieren</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8851498942119985027" datatype="html">
+        <source>HOME_BENEFITS_EASY_TITLE</source>
+        <target state="new">Einfach</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="728376619165122030" datatype="html">
+        <source>HOME_BENEFITS_EASY_DESCRIPTION</source>
+        <target state="new">Einfach und übersichtlich den Überblick über die eigenen Finanzen behalten</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8154366183437336869" datatype="html">
+        <source>HOME_BENEFITS_CATEGORIES_TITLE</source>
+        <target state="new">Kategorien</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8036300839386196399" datatype="html">
+        <source>HOME_BENEFITS_CATEGORIES_DESCRIPTION</source>
+        <target state="new">Weise einzelnen Buchungen selbst gewählte Kategorien zu für detailierte Statistiken</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8735197420322070818" datatype="html">
+        <source>HOME_BENEFITS_BUDGET_PLAN_TITLE</source>
+        <target state="new">Haushaltsplan</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9131046020793473004" datatype="html">
+        <source>HOME_BENEFITS_BUDGET_PLAN_DESCRIPTION</source>
+        <target state="new">Erstelle einen Haushaltsplan, um auf einen Blick zu sehen wie viel Geld monatlich zur Verfügung steht</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7658773859094945926" datatype="html">
+        <source>HOME_BENEFITS_AVAILABILITY_TITLE</source>
+        <target state="new">Verfügbarkeit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1335292547492748042" datatype="html">
+        <source>HOME_BENEFITS_AVAILABILITY_DESCRIPTION</source>
+        <target state="new">Kostenlos und auf allen Plattformen verfügbar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2255656301373777179" datatype="html">
