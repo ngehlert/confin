@@ -78,7 +78,7 @@ export class DashboardComponent implements OnInit {
 
     private scrollToTable(): void {
         if (this.tableSection) {
-            window.scrollTo({ top: this.tableSection.nativeElement.offsetTop, behavior: 'smooth' });
+            window.scrollTo({ top: this.tableSection.nativeElement.offsetTop - 64, behavior: 'smooth' });
         }
     }
 

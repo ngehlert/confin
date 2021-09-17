@@ -5,6 +5,10 @@ export enum AvailableProperties {
     NavigationColor = '--navigation-color',
     BorderColor = '--border-color',
     InputHoverBorderColor = '--input-hover-border-color',
+    HomeImage = '--home-image',
+    HomeShadow = '--home-shadow',
+    HomeTextColor = '--home-text-color',
+    HomeTextColorShadow = '--home-text-color-shadow',
 }
 
 export enum Theme {
