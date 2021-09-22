@@ -1,0 +1,101 @@
+@mixin background-loading-animation {
+    @media only screen and (prefers-reduced-motion: no-preference) {
+        background: linear-gradient(90deg,#ddda 40%,#fffa ,#ddda 60%) right/300% 100%;
+        animation: shimmer 1s linear infinite
+    }
+}
+
+.columns {
+    column-width: 300px;
+    column-gap: 1.15rem;
+}
+
+section {
+    padding: 1.15rem;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    mat-card {
+        margin-bottom: 1.15rem;
+        cursor: pointer;
+        border: 4px solid transparent;
+        break-inside: avoid;
+        // hack to make box shadows of mat-cards visible in chrome
+        // https://stackoverflow.com/questions/17881923/box-shadow-trimmed-in-css-columns-in-chrome/34324375
+        transform: translateZ(0);
+
+        &:hover,
+        &:focus {
+            border: 4px dashed var(--border-color);
+            outline: none
+        }
+    }
+
+    mat-card.add-new {
+        height: 52px;
+        max-width: 500px;
+
+        mat-card-content {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            justify-items: center;
+            grid-gap: 0.5rem;
+            margin: 0;
+            height: 100%;
+
+            p {
+                font-style: italic
+            }
+        }
+    }
+
+    mat-card.loading {
+        max-width: 500px;
+        cursor: progress;
+
+        mat-card-title {
+            width: 200px;
+            @include background-loading-animation;
+
+            p {
+                width: 120px;
+                @include background-loading-animation;
+            }
+
+            &:hover,
+            &:focus {
+                border: 4px solid transparent;
+                outline: none
+            }
+        }
+    }
+
+    p {
+        text-align: right;
+        margin: 0;
+    }
+
+    &:nth-child(2) {
+        min-height: 500px;
+        height: calc(100vh - 2 * 1.15rem - 64px);
+        position: relative;
+    }
+
+    ag-grid-angular {
+        height: 100%;
+        width: 100%;
+    }
+
+    button[mat-fab] {
+        position: absolute;
+        bottom: 2.25rem;
+        right: 2.25rem;
+    }
+}
+
+@keyframes shimmer {
+    to {
+        background-position: left;
+    }
+}

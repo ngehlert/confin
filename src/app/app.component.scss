@@ -1,0 +1,55 @@
+@import "../utils";
+
+.app {
+    background-color: var(--background);
+    color: var(--font-color);
+    width: 100%;
+    min-height: 100%;
+    @extend .theme-transition;
+
+    a.navigation-link,
+    a.navigation-link:active,
+    a.navigation-link:hover,
+    a.navigation-link:link,
+    a.navigation-link:visited {
+        color: var(--navigation-color);
+        text-decoration: none;
+        margin: 0 0 0 1.5rem;
+    }
+
+    .toolbar {
+        padding: 0 1em 0 0;
+        position: fixed;
+        z-index: 1;
+        background: #00796bdb;
+    }
+
+    a img {
+        height: 56px;
+        margin-top: 8px;
+    }
+}
+
+.theme-slider {
+    margin: 0 8px;
+}
+
+.router-wrapper {
+    min-height: 100vh;
+    padding-top: 64px;
+}
+
+footer {
+    border-top: 6px solid var(--border-color);
+    background-color: #263238;
+    color: #c9d1c9;
+    height: 200px;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    img {
+        height: 180px;
+        margin: 10px;
+    }
+}

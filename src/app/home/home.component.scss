@@ -1,0 +1,117 @@
+@import "../../utils";
+
+.main {
+    position: relative;
+    background-image: var(--home-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 0;
+    padding-top: 87.5%; /* (img-height / img-width * container-width) */
+    /* (1792 / 2048 * 100) */
+    @extend .theme-transition;
+
+    @media only screen and (min-width: 1500px) {
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+        padding-top: 0;
+    }
+
+    @media only screen and (min-width: 2049px) {
+        background-size: contain;
+    }
+
+    &:before {
+        background-image: var(--home-shadow);
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: calc(100%);
+    }
+
+    div {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 15%;
+        width: 400px;
+        text-align: center;
+    }
+
+    a,
+    a:active,
+    a:hover,
+    a:link,
+    a:visited {
+        position: relative;
+        text-decoration: none;
+        color: var(--home-text-color);
+        text-shadow: var(--home-text-color-shadow);
+        font-size: 2rem;
+    }
+
+    a:first-child {
+        margin-right: 1rem;
+        padding-right: 1rem;
+        border-right: 1px solid var(--home-text-color);
+    }
+
+    a::before {
+        content: "";;
+        position: absolute;
+        left: 0;
+        bottom: -0.3rem;
+        width: 0;
+        height: 0.6rem;
+        transform: skew(-36deg) translate(-10%);
+        background-color: var(--border-color);
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    }
+
+    a:hover::before {
+        width: 50px;
+    }
+}
+
+.intro {
+    margin: 4rem 0;
+    text-align: center;
+
+    h1 {
+        font-size: 5rem;
+        line-height: 5rem;
+        letter-spacing: 1px;
+    }
+    p {
+        font-size: 2rem;
+        line-height: 2rem;
+        font-style: italic;
+    }
+}
+
+.benefits {
+    ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-gap: 3em;
+        max-width: 900px;
+        margin: 0 auto;
+        list-style: none;
+        padding: 1rem;
+    }
+
+    li {
+        break-inside: avoid;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        @extend .fancy-border;
+    }
+}
+
+mark {
+    color: #CE5F5B;
+    background: none;
+}
