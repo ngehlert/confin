@@ -1,56 +1,48 @@
 <section class="columns">
     <ng-template [ngIf]="areAccountsLoading">
-        <mat-card
-            class="mat-elevation-z3 loading"
+        <emsi-card
+            class="loading"
+            [scaleHeight]="true"
             aria-label="loading placeholder"
             *ngFor="let e of [].constructor(2)"
         >
-            <mat-card-header>
-                <mat-card-title>&nbsp;</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
+            <ng-container card-content>
                 <span class="cdk-visually-hidden">Loading</span>
+                <h2>&nbsp;</h2>
                 <p>&nbsp;</p>
-            </mat-card-content>
-        </mat-card>
+            </ng-container>
+        </emsi-card>
     </ng-template>
-    <mat-card
+    <emsi-card
         *ngFor="let account of accounts$ | async; let i = index;"
-        class="mat-elevation-z3"
+        [scaleHeight]="true"
+        [clickable]="true"
         (click)="loadBookings(account.id)"
-        (keyup.enter)="loadBookings(account.id)"
-        [attr.aria-labelledby]="'account-name-' + i"
-        matRipple
-        tabindex="1"
-        [onFocus]="['mat-elevation-z6']"
     >
-        <mat-card-header>
-            <mat-card-title [attr.id]="'account-name-' + i">{{account.name}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
+        <ng-container card-title>{{account.name}}</ng-container>
+        <ng-container card-content>
             <p [appColoredCurrency]="account.balance" aria-label="account balance">{{account.balance}}</p>
-        </mat-card-content>
-        <mat-card-footer></mat-card-footer>
-    </mat-card>
-    <mat-card
-        class="mat-elevation-z3 add-new"
-        matRipple
-        tabindex="1"
-        [onFocus]="['mat-elevation-z6']"
+        </ng-container>
+    </emsi-card>
+    <emsi-card
+        class="add-new"
+        [scaleHeight]="true"
+        [clickable]="false"
     >
-        <mat-card-content>
-            <p aria-label="card to add new account" i18n>DASHBOARD_ADD_NEW_ACCOUNT</p>
-            <button mat-mini-fab color="primary" aria-label="Icon button to add new account">
-                <mat-icon>add</mat-icon>
-            </button>
-        </mat-card-content>
-        <mat-card-footer></mat-card-footer>
-    </mat-card>
+        <ng-container card-content>
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <p aria-label="card to add new account"><i i18n>DASHBOARD_ADD_NEW_ACCOUNT</i></p>
+                <button mat-mini-fab color="primary" aria-label="Icon button to add new account">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+        </ng-container>
+    </emsi-card>
 </section>
 <section #tableSection *ngIf="hasTableData">
     <ag-grid-angular
         #agGrid
-        class="ag-theme-alpine"
+        [className]="themeService.getActiveTheme().tableTheme"
         [rowData]="tableData | async"
         [columnDefs]="columnDefs"
         [defaultColDef]="defaultColDef"

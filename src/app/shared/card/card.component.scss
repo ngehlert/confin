@@ -1,0 +1,25 @@
+@use '~@angular/material' as mat;
+@import "../../../utils";
+
+.card {
+    margin: 1rem;
+    padding: 1rem;
+    box-shadow: var(--elevation-light);
+    @extend .fancy-border;
+
+    &--scale-height {
+        height: calc(100% - 4rem);
+    }
+
+    &--clickable {
+        cursor: pointer;
+        border: 5px dashed var(--border-color);
+        border-radius: 4px;
+        box-shadow: var(--elevation-heavy);
+        outline: none;
+    }
+
+    h2:empty {
+        display: none;
+    }
+}

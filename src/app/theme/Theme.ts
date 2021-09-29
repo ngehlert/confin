@@ -9,6 +9,9 @@ export enum AvailableProperties {
     HomeShadow = '--home-shadow',
     HomeTextColor = '--home-text-color',
     HomeTextColorShadow = '--home-text-color-shadow',
+    ElevationLight = '--elevation-light',
+    ElevationHeavy = '--elevation-heavy',
+    RippleColor = '--ripple-color',
 }
 
 export enum Theme {
@@ -19,4 +22,5 @@ export enum Theme {
 export interface IThemeOptions {
     name: Theme;
     customProperties: Record<AvailableProperties, string>;
+    tableTheme: string;
 }

@@ -93,22 +93,12 @@
 }
 
 .benefits {
-    ul {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        grid-gap: 3em;
-        max-width: 900px;
-        margin: 0 auto;
-        list-style: none;
-        padding: 1rem;
-    }
-
-    li {
-        break-inside: avoid;
-        padding: 1rem;
-        margin-bottom: 2rem;
-        @extend .fancy-border;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 3em;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
 }
 
 mark {

@@ -2,6 +2,7 @@ import { AvailableProperties, IThemeOptions, Theme } from './Theme';
 
 export const lightTheme: IThemeOptions = {
     name: Theme.Light,
+    tableTheme: 'ag-theme-alpine',
     customProperties: {
         [AvailableProperties.Background]: '#fefefe',
         [AvailableProperties.FontColor]: '#24292e',
@@ -24,5 +25,8 @@ export const lightTheme: IThemeOptions = {
         )`,
         [AvailableProperties.HomeTextColor]: '#fff',
         [AvailableProperties.HomeTextColorShadow]: '0 0 8px rgba(0,0,0,0.7), 0 0 8px rgba(0,0,0,0.7), 0 0 8px rgba(0,0,0,0.7), 0 0 8px rgba(0,0,0,0.7)',
+        [AvailableProperties.ElevationLight]: '0 2px 4px -1px #00000029, 0 4px 5px #0000001d, 0 1px 10px #00000018',
+        [AvailableProperties.ElevationHeavy]: '0 5px 5px -3px #00000029, 0 8px 10px 1px #0000001d, 0 3px 14px 2px #00000018',
+        [AvailableProperties.RippleColor]: 'rgba(36, 41 ,46, 0.3)'
     }
 };

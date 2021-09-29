@@ -11,22 +11,20 @@
 </section>
 
 <section class="benefits" #benefits>
-    <ul>
-        <li>
-            <h2 i18n>HOME_BENEFITS_EASY_TITLE</h2>
-            <span i18n>HOME_BENEFITS_EASY_DESCRIPTION</span>
-        </li>
-        <li>
-            <h2 i18n>HOME_BENEFITS_CATEGORIES_TITLE</h2>
-            <span i18n>HOME_BENEFITS_CATEGORIES_DESCRIPTION</span>
-        </li>
-        <li>
-            <h2 i18n>HOME_BENEFITS_BUDGET_PLAN_TITLE</h2>
-            <span i18n>HOME_BENEFITS_BUDGET_PLAN_DESCRIPTION</span>
-        </li>
-        <li>
-            <h2 i18n>HOME_BENEFITS_AVAILABILITY_TITLE</h2>
-            <span i18n>HOME_BENEFITS_AVAILABILITY_DESCRIPTION</span>
-        </li>
-    </ul>
+    <emsi-card [scaleHeight]="true">
+        <ng-container card-title i18n>HOME_BENEFITS_EASY_TITLE</ng-container>
+        <ng-container card-content><p i18n>HOME_BENEFITS_EASY_DESCRIPTION</p></ng-container>
+    </emsi-card>
+    <emsi-card [scaleHeight]="true">
+        <ng-container card-title i18n>HOME_BENEFITS_CATEGORIES_TITLE</ng-container>
+        <ng-container card-content><p i18n>HOME_BENEFITS_CATEGORIES_DESCRIPTION</p></ng-container>
+    </emsi-card>
+    <emsi-card [scaleHeight]="true">
+        <ng-container card-title i18n>HOME_BENEFITS_BUDGET_PLAN_TITLE</ng-container>
+        <ng-container card-content><p i18n>HOME_BENEFITS_BUDGET_PLAN_DESCRIPTION</p></ng-container>
+    </emsi-card>
+    <emsi-card [scaleHeight]="true">
+        <ng-container card-title i18n>HOME_BENEFITS_AVAILABILITY_TITLE</ng-container>
+        <ng-container card-content><p i18n>HOME_BENEFITS_AVAILABILITY_DESCRIPTION</p></ng-container>
+    </emsi-card>
 </section>

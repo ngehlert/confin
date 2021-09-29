@@ -33,9 +33,9 @@ $confin-theme: mat-light-theme((
 // that you are using.
 @include angular-material-theme($confin-theme);
 
-@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
-@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
-
+@import "~ag-grid-community/src/styles/ag-grid.scss";
+@import "~ag-grid-community/src/styles/ag-theme-alpine-dark/sass/ag-theme-alpine-dark";
+@import "~ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine";
 
 html, body {
     height: 100%;

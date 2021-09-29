@@ -1,19 +1,23 @@
 <form class="login" [formGroup]="form" (ngSubmit)="login()">
-    <section class="container mat-elevation-z6" fxLayout="column" fxLayoutAlign="center center">
-        <img src="assets/logo-transparent.png" class="logo"/>
-        <mat-form-field appearance="outline">
-            <mat-label i18n>LOGIN_FORM_USER_NAME</mat-label>
-            <input type="text" matInput formControlName="name" />
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label i18n>LOGIN_FORM_USER_PASSWORD</mat-label>
-            <input type="password" matInput formControlName="password" />
-        </mat-form-field>
-        <button
-            mat-stroked-button
-            type="submit"
-            i18n
-            color="primary"
-        >LOGIN_FORM_SUBMIT_BUTTON</button>
-    </section>
+    <emsi-card>
+        <ng-container card-content>
+            <section class="container" fxLayout="column" fxLayoutAlign="center center">
+                <img src="assets/logo-transparent.png" class="logo"/>
+                <mat-form-field appearance="outline">
+                    <mat-label i18n>LOGIN_FORM_USER_NAME</mat-label>
+                    <input type="text" matInput formControlName="name" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label i18n>LOGIN_FORM_USER_PASSWORD</mat-label>
+                    <input type="password" matInput formControlName="password" />
+                </mat-form-field>
+                <button
+                    mat-stroked-button
+                    type="submit"
+                    i18n
+                    color="primary"
+                >LOGIN_FORM_SUBMIT_BUTTON</button>
+            </section>
+        </ng-container>
+    </emsi-card>
 </form>

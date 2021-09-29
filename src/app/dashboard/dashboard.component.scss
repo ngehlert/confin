@@ -6,8 +6,9 @@
 }
 
 .columns {
-    column-width: 300px;
-    column-gap: 1.15rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1em;
 }
 
 section {
@@ -15,59 +16,28 @@ section {
     max-width: 1400px;
     margin: 0 auto;
 
-    mat-card {
-        margin-bottom: 1.15rem;
-        cursor: pointer;
-        border: 4px solid transparent;
-        break-inside: avoid;
-        // hack to make box shadows of mat-cards visible in chrome
-        // https://stackoverflow.com/questions/17881923/box-shadow-trimmed-in-css-columns-in-chrome/34324375
-        transform: translateZ(0);
-
-        &:hover,
-        &:focus {
-            border: 4px dashed var(--border-color);
-            outline: none
-        }
-    }
-
-    mat-card.add-new {
-        height: 52px;
+    emsi-card.add-new {
         max-width: 500px;
 
-        mat-card-content {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: center;
-            justify-items: center;
-            grid-gap: 0.5rem;
-            margin: 0;
+        div {
             height: 100%;
-
-            p {
-                font-style: italic
-            }
+        }
+        p {
+            margin-right: 12px;
         }
     }
 
-    mat-card.loading {
+    emsi-card.loading {
         max-width: 500px;
         cursor: progress;
 
-        mat-card-title {
+        p {
+            width: 120px;
+            @include background-loading-animation;
+        }
+        h2 {
             width: 200px;
             @include background-loading-animation;
-
-            p {
-                width: 120px;
-                @include background-loading-animation;
-            }
-
-            &:hover,
-            &:focus {
-                border: 4px solid transparent;
-                outline: none
-            }
         }
     }
 

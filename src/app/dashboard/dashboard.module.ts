@@ -10,12 +10,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
 import { A11yModule } from '@angular/cdk/a11y';
-import { OnFocusDirective } from './on-focus.directive';
+import { CardModule } from '../shared/card/card.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     declarations: [
         DashboardComponent,
-        OnFocusDirective,
     ],
     imports: [
         CommonModule,
@@ -27,6 +27,8 @@ import { OnFocusDirective } from './on-focus.directive';
         UtilsModule,
         AgGridModule.withComponents([]),
         A11yModule,
+        CardModule,
+        FlexLayoutModule,
     ],
     exports: [
         CommonModule,

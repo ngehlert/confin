@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Account, Booking, Category, RequestResult } from '../types';
@@ -9,6 +9,7 @@ import { startOfDay, subDays, addDays, format } from 'date-fns';
 import { ValueFormatterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { CurrencyPipe } from '@angular/common';
 import { AgGridAngular } from 'ag-grid-angular';
+import { ThemeService } from '../theme/theme.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -38,6 +39,7 @@ export class DashboardComponent implements OnInit {
         private http: HttpClient,
         private currencyPipe: CurrencyPipe,
         private changeDetector: ChangeDetectorRef,
+        public themeService: ThemeService,
     ) { }
 
     public ngOnInit(): void {

@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { ColoredCurrencyDirective } from './colored-currency/colored-currency.directive';
+import { OnFocusDirective } from './on-focus.directive';
 
 @NgModule({
     declarations: [
         ColoredCurrencyDirective,
+        OnFocusDirective,
     ],
     imports: [
         CommonModule
@@ -14,6 +16,7 @@ import { ColoredCurrencyDirective } from './colored-currency/colored-currency.di
     ],
     exports: [
         ColoredCurrencyDirective,
+        OnFocusDirective,
     ]
 })
 export class UtilsModule { }

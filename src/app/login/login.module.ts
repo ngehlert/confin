@@ -7,6 +7,7 @@ import { LoginComponent } from './login.component';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CardModule } from '../shared/card/card.module';
 
 @NgModule({
     declarations: [LoginComponent],
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
         FlexLayoutModule,
         MatButtonModule,
         HttpClientModule,
+        CardModule,
     ]
 })
 export class LoginModule { }

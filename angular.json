@@ -15,7 +15,7 @@
             },
             "root": "",
             "sourceRoot": "src",
-            "prefix": "app",
+            "prefix": "emsi",
             "i18n": {
                 "sourceLocale": "key",
                 "locales": {

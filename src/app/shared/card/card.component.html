@@ -1,0 +1,13 @@
+<div
+    class="card"
+    [class.card--scale-height]="scaleHeight"
+    matRipple
+    [matRippleDisabled]="!clickable"
+    matRippleColor="var(--ripple-color)"
+    [tabIndex]="clickable ? 1 : 0"
+    [onFocus]="clickable ? ['card--clickable'] : []"
+    (keyup.enter)="triggerClick()"
+>
+    <h2><ng-content select="[card-title]"></ng-content></h2>
+    <ng-content select="[card-content]"></ng-content>
+</div>
