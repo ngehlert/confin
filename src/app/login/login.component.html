@@ -3,14 +3,20 @@
         <ng-container card-content>
             <section class="container" fxLayout="column" fxLayoutAlign="center center">
                 <img src="assets/logo-transparent.png" class="logo"/>
-                <mat-form-field appearance="outline">
-                    <mat-label i18n>LOGIN_FORM_USER_NAME</mat-label>
-                    <input type="text" matInput formControlName="name" />
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-label i18n>LOGIN_FORM_USER_PASSWORD</mat-label>
-                    <input type="password" matInput formControlName="password" />
-                </mat-form-field>
+                <emsi-input
+                    formControlName="name"
+                    type="text"
+                    label="LOGIN_FORM_USER_NAME"
+                    i18n-label
+                    class="input-container"
+                ></emsi-input>
+                <emsi-input
+                    formControlName="password"
+                    type="password"
+                    label="LOGIN_FORM_USER_PASSWORD"
+                    i18n-label
+                    class="input-container"
+                ></emsi-input>
                 <button
                     mat-stroked-button
                     type="submit"

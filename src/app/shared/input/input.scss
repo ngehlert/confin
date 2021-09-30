@@ -1,0 +1,101 @@
+@mixin translateLabel() {
+    & + .input__label {
+        transform: translate(0, 60%) scale(.7);
+        margin: 0 14px;
+    }
+
+    padding: 25px 16px 12px 16px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.input-field-wrapper {
+    position: relative;
+
+    .input {
+        position: relative;
+        width: 100%;
+        min-width: 180px;
+        margin: 20px 0;
+        display: block;
+
+        &__label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 0;
+            margin: 21px 16px;
+            color: var(--font-color);
+            white-space: nowrap;
+            transform: translate(0, 0);
+            transform-origin: 0 0;
+            transition: transform 180ms ease-in-out, margin 180ms ease-in-out;
+            font-weight: bold;
+            font-size: 1rem;
+            line-height: 1.2;
+            pointer-events: none;
+
+            &--error {
+                color: var(--error-color) !important;
+            }
+        }
+
+        &__field {
+            box-sizing: border-box;
+            display: block;
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid var(--border-color);
+            padding: 19px 8px;
+            color: var(--font-color);
+            background: rgba(190, 190, 190, 0.3);
+            border-radius: 4px 4px 0 0;
+
+            &--error {
+                border-bottom-color: var(--error-color) !important;
+            }
+
+            &:focus {
+                color: var(--font-color);
+            }
+
+            &:hover {
+                border-bottom: 3px solid var(--border-color);
+                padding: 19px 8px 18px 8px;
+            }
+
+            &:focus,
+            &:not(:placeholder-shown) {
+                @include translateLabel();
+                & + .input__label {
+                    color: var(--font-color);
+                }
+            }
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:active,
+        input:-webkit-autofill:focus {
+            @include translateLabel();
+            & + .input__label {
+                color: #24292e !important;
+            }
+        }
+    }
+
+    .form-error {
+        color: var(--error-color);
+        font-size: 75%;
+        position: absolute;
+        margin-top: 2px;
+        top: calc(100% - 12px);
+        left: 16px;
+        opacity: 0;
+        transition: transform 140ms ease-in, opacity 140ms ease-in;
+
+        &--visible {
+            opacity: 1;
+            transform: translateY(100%);
+        }
+    }
+}

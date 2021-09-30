@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CardModule } from '../shared/card/card.module';
+import { InputModule } from '../shared/input/input.module';
 
 @NgModule({
     declarations: [LoginComponent],
@@ -20,6 +21,7 @@ import { CardModule } from '../shared/card/card.module';
         MatButtonModule,
         HttpClientModule,
         CardModule,
+        InputModule,
     ]
 })
 export class LoginModule { }

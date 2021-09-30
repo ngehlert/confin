@@ -27,14 +27,6 @@
     --ripple-color: rgba(36, 41 ,46, 0.3);
 }
 
-.mat-form-field-label {
-    color: var(--secondary-font-color);
-}
-
-.mat-form-field-appearance-outline .mat-form-field-outline-thick {
-    color: var(--input-hover-border-color);
-}
-
 /**
  * Theme Slider
  */
@@ -87,7 +79,14 @@
     background-color: black;
 }
 
-// removes margin from mat-card headers
-mat-card .mat-card-header-text {
-    margin: 0;
+// Angular Material Button overwrites
+
+.mat-stroked-button:not(.mat-button-disabled) {
+    border-color: var(--border-color);
+}
+.mat-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay, .mat-stroked-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay {
+    opacity: 0.2 !important;
+}
+.mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary {
+    text-shadow: 0 0 4px rgba(195, 195, 195, 0.3);
 }

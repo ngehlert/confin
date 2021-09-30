@@ -1,0 +1,23 @@
+<div class="input-field-wrapper">
+    <div
+        class="form-error"
+        [class.form-error--visible]="getError()"
+    >
+        {{getError()}}
+    </div>
+    <label class="input">
+        <input
+            class="input__field"
+            [type]="type"
+            placeholder=" "
+            [ngModel]="value"
+            (ngModelChange)="onChange($event)"
+            [disabled]="!!(parentControl && parentControl.disabled)"
+            [class.input__field--error]="parentControl && parentControl.invalid"
+        />
+        <span
+            class="input__label"
+            [class.input__label--error]="parentControl && parentControl.invalid"
+        >{{label}}</span>
+    </label>
+</div>
