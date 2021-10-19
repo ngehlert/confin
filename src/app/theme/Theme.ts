@@ -12,6 +12,8 @@ export enum AvailableProperties {
     ElevationLight = '--elevation-light',
     ElevationHeavy = '--elevation-heavy',
     RippleColor = '--ripple-color',
+    ErrorColor = '--error-color',
+    ErrorOnErrorBackgroundColor = '--error-on-error-background-color',
 }
 
 export enum Theme {

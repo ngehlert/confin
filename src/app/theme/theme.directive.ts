@@ -1,4 +1,4 @@
-import { Directive, OnInit, OnDestroy, ElementRef } from '@angular/core';
+import { Directive, OnInit, OnDestroy, ElementRef, Input } from '@angular/core';
 import { ThemeService } from './theme.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -8,6 +8,8 @@ import { AvailableProperties, IThemeOptions } from './Theme';
     selector: '[appTheme]'
 })
 export class ThemeDirective implements OnInit, OnDestroy {
+
+    @Input() public attachToBody: boolean = false;
 
     private unsubscribe: Subject<boolean> = new Subject();
 
@@ -34,7 +36,11 @@ export class ThemeDirective implements OnInit, OnDestroy {
 
     public updateTheme(theme: IThemeOptions): void {
         Object.keys(theme.customProperties).forEach((key: string): void => {
-            this.elementRef.nativeElement.style.setProperty(key, theme.customProperties[key as AvailableProperties]);
+            if (this.attachToBody) {
+                this.elementRef.nativeElement.closest('body').style.setProperty(key, theme.customProperties[key as AvailableProperties]);
+            } else {
+                this.elementRef.nativeElement.style.setProperty(key, theme.customProperties[key as AvailableProperties]);
+            }
         });
     }
 

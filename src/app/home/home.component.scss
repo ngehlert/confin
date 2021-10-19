@@ -5,16 +5,14 @@
     background-image: var(--home-image);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 0;
-    padding-top: 87.5%; /* (img-height / img-width * container-width) */
-    /* (1792 / 2048 * 100) */
+    aspect-ratio: 2048 / 1792;
     @extend .theme-transition;
 
     @media only screen and (min-width: 1500px) {
         background-position: center;
         background-size: cover;
         height: 100vh;
-        padding-top: 0;
+        aspect-ratio: auto;
     }
 
     @media only screen and (min-width: 2049px) {
@@ -94,11 +92,142 @@
 
 .benefits {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-gap: 3em;
-    max-width: 1200px;
-    margin: 0 auto;
+    text-align: center;
+
+    emsi-card {
+        background: var(--background);
+    }
+
+    h2 {
+        font-size: 2rem;
+        line-height: 2rem;
+        letter-spacing: 1px;
+    }
+    p {
+        font-size: 1.3em;
+        line-height: 1.3em;
+    }
+    mat-icon {
+        $size: 5rem;
+        font-size: $size;
+        width: $size;
+        height: $size;
+        color: var(----font-color);
+        opacity: 0.6;
+        margin-bottom: 0.7rem;
+    }
+}
+
+.sample-screenshots {
+    overflow: hidden;
+
+    .img-wrapper {
+        width: 100%;
+        aspect-ratio: 16/9;
+        display: flex;
+        overflow: hidden;
+        border: 4px solid var(--border-color);
+    }
+
+    .img-expand-animation-wrapper {
+        width: 33%;
+        transition: width 0.5s ease-in-out;
+    }
+
+    .img-container {
+        width: 300%;
+        transform: skew(-20deg);
+        height: 100%;
+        overflow: hidden;
+        transition: all 0.5s ease-in-out;
+
+        &::before {
+            content: "";
+            transform: skewX(20deg);
+            background-repeat: no-repeat;
+            background-position: top left;
+
+            position: absolute;
+            transform-origin: bottom left;
+            width: 2000px; /* something ridiculously big */
+            height: 2000px;
+        }
+
+        &--image-1 {
+            transform: skew(-20deg) translateX(-11%);
+
+            &.hover-index-3 {
+                transform: skewX(-20deg) translateX(-10%);
+            }
+
+            &::before {
+                background-image: url("/assets/home-dark.jpg");
+            }
+        }
+        &--image-2 {
+            border-left: 12px solid var(--border-color);
+
+            &.hover-index-1 {
+                transform: skewX(-20deg) translateX(40%);
+            }
+            &.hover-index-2 {
+                transform: skewX(-20deg) translateX(-20%);
+            }
+            &.hover-index-3 {
+                transform: skewX(-20deg) translateX(-20%);
+            }
+            &::before {
+                background-image: url("/assets/home-bright.jpg");
+            }
+        }
+        &--image-3 {
+            border-left: 12px solid var(--border-color);
+
+            &.hover-index-2,
+            &.hover-index-1 {
+                transform: skewX(-20deg) translateX(20%);
+            }
+            &.hover-index-3 {
+                transform: skewX(-20deg) translateX(-40%);
+            }
+            &::before {
+                background-image: url("/assets/home-dark.jpg");
+            }
+        }
+    }
+}
+
+.try-demo {
+    --svg-sneak-background: var(--background);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 3em;
+    align-items: center;
+    text-align: center;
+
+    h2 {
+        font-size: 2rem;
+        line-height: 2rem;
+        letter-spacing: 1px;
+    }
+    p {
+        font-size: 1.3em;
+        line-height: 1.3em;
+    }
+
+    mat-icon {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.max-width-section {
+    margin: 4rem auto;
     padding: 1rem;
+    max-width: 1200px;
 }
 
 mark {

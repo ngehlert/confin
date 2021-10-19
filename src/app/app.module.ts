@@ -13,9 +13,12 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMenuModule } from '@angular/material/menu';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { NoopScrollStrategy } from '@angular/cdk/overlay';
+import { DemoInterceptor } from './demo.interceptor';
 
-export const tokenGetter: () => string | null = (): string | null => sessionStorage.getItem(environment.tokenKey);
+export const tokenGetter: () => string | null = (): string | null => localStorage.getItem(environment.tokenKey);
 
 @NgModule({
     imports: [
@@ -35,12 +38,21 @@ export const tokenGetter: () => string | null = (): string | null => sessionStor
                 tokenGetter,
                 allowedDomains: ['confin-api.ngehlert.de'],
                 disallowedRoutes: ['https://confin-api.ngehlert.de/index.php/auth', /.*de\.svg$/, /.*gb\.svg$/],
-                throwNoTokenError: true,
+                throwNoTokenError: false,
             },
         }),
     ],
     providers: [
-        {provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR'}
+        {provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR'},
+        {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {
+            hasBackdrop: true,
+            scrollStrategy: new NoopScrollStrategy(),
+        }},
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: DemoInterceptor,
+            multi: true
+        }
     ],
     bootstrap: [AppComponent],
     declarations: [

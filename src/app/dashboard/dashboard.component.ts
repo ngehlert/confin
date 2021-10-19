@@ -1,6 +1,6 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpContext } from '@angular/common/http';
 import { Account, Booking, Category, RequestResult } from '../types';
 import { Observable, of } from 'rxjs';
 import { finalize, map, publishReplay, refCount, switchMap, take } from 'rxjs/operators';
@@ -10,13 +10,18 @@ import { ValueFormatterParams } from 'ag-grid-community/dist/lib/entities/colDef
 import { CurrencyPipe } from '@angular/common';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ThemeService } from '../theme/theme.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AccountComponent } from './dialogs/account/account.component';
+import { ActivatedRoute } from '@angular/router';
+import { DEMO_REQUEST } from '../demo.interceptor';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 
     @ViewChild('agGrid', {static: false}) public agGrid?: AgGridAngular;
     @ViewChild('tableSection', {static: false}) public tableSection?: ElementRef;
@@ -26,6 +31,7 @@ export class DashboardComponent implements OnInit {
     public columnDefs: Array<ColDef> = this.getColumnDefs();
     public defaultColDef: ColDef = {
         sortingOrder: ['desc', 'asc'],
+        sortable: true,
         floatingFilter: true,
         suppressMenu: true,
     }
@@ -34,16 +40,37 @@ export class DashboardComponent implements OnInit {
     public areAccountsLoading: boolean = false;
 
     private currentlyVisibleAccount: number | null = null;
+    private httpContext: HttpContext = new HttpContext();
 
     constructor(
         private http: HttpClient,
         private currencyPipe: CurrencyPipe,
         private changeDetector: ChangeDetectorRef,
         public themeService: ThemeService,
+        private dialog: MatDialog,
+        private route: ActivatedRoute,
+        private snackBar: MatSnackBar,
     ) { }
 
     public ngOnInit(): void {
         this.loadAccounts();
+        this.route.data.subscribe((routeData: RouteData) => {
+            if (routeData.demo) {
+                this.snackBar.open(
+                    $localize`DEMO_DASHBOARD_SNACKBAR_MESSAGE`,
+                    'X',
+                    {
+                        politeness: 'assertive',
+                        panelClass: 'demo-snackbar',
+                    }
+                )
+                this.httpContext.set(DEMO_REQUEST, true);
+            }
+        });
+    }
+
+    public ngOnDestroy(): void {
+        this.snackBar.dismiss();
     }
 
     public loadBookings(accountId: number): void {
@@ -61,6 +88,10 @@ export class DashboardComponent implements OnInit {
         console.log(this.currentlyVisibleAccount);
     }
 
+    public addNewAccount(): void {
+        this.dialog.open<AccountComponent>(AccountComponent).afterClosed().subscribe(console.log);
+    }
+
     private showTable(): void {
         this.hasTableData = true;
         this.changeDetector.detectChanges();
@@ -69,7 +100,10 @@ export class DashboardComponent implements OnInit {
     private loadAccounts(): void {
         this.areAccountsLoading = true;
         this.accounts$ = this.http.get<RequestResult<Array<Account>>>(
-            `${environment.apiUrl}/accounts`
+            `${environment.apiUrl}/accounts`,
+            {
+                context: this.httpContext,
+            },
         ).pipe(
             map((result: RequestResult<Array<Account>>) => result.data.filter((account: Account) => account.visible)),
             publishReplay(1),
@@ -104,7 +138,10 @@ export class DashboardComponent implements OnInit {
         const fromDate: string = format(subDays(new Date(), 30), 'yyyy-MM-dd');
         const toDate: string = format(addDays(new Date(), 7), 'yyyy-MM-dd');
         this.http.get<RequestResult<Array<Booking>>>(
-            `${environment.apiUrl}/bookings?from=${fromDate}&to=${toDate}&accountId=${accountId}`
+            `${environment.apiUrl}/bookings?from=${fromDate}&to=${toDate}&accountId=${accountId}`,
+            {
+                context: this.httpContext,
+            },
         ).pipe(
             map((result: RequestResult<Array<Booking>>): Array<TableEntry> => {
                 return result.data
@@ -143,7 +180,10 @@ export class DashboardComponent implements OnInit {
         }
 
         return this.http.get<RequestResult<Array<Category>>>(
-            `${environment.apiUrl}/categories/${Array.from(categoryIds).join(',')}`
+            `${environment.apiUrl}/categories/${Array.from(categoryIds).join(',')}`,
+            {
+                context: this.httpContext,
+            },
         ).pipe(map((result: RequestResult<Array<Category>>) => result.data));
     }
 
@@ -155,7 +195,8 @@ export class DashboardComponent implements OnInit {
                 field: 'booking.name',
                 filter: 'agTextColumnFilter',
                 minWidth: 150,
-                flex: 2,
+                flex: 3,
+                comparator: textLocaleCompare,
             },
             {
                 colId: 'category',
@@ -163,7 +204,8 @@ export class DashboardComponent implements OnInit {
                 field: 'category.name',
                 filter: 'agTextColumnFilter',
                 minWidth: 150,
-                flex: 1,
+                flex: 2,
+                comparator: textLocaleCompare,
             },
             {
                 colId: 'date',
@@ -195,6 +237,14 @@ export class DashboardComponent implements OnInit {
             }
         ]
     }
+}
+
+function textLocaleCompare(valueA: string = '', valueB: string = '') {
+    return valueA.localeCompare(valueB);
+}
+
+export interface RouteData {
+    demo?: boolean;
 }
 
 interface TableEntry {

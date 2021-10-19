@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
                 password: this.form.controls.password.value,
             },
         ).subscribe((result: {token: string}) => {
-            sessionStorage.setItem(environment.tokenKey, result.token);
+            localStorage.setItem(environment.tokenKey, result.token);
             this.router.navigate(['/dashboard']);
         });
     }

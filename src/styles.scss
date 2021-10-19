@@ -22,9 +22,24 @@
     );
     --home-text-color: #fff;
     --home-text-color-shadow: 0 0 6px rgba(255,255,255,0.7);
+    --home-image-elevation: -5px 5px 5px -3px #00000029, -5px 8px 10px 1px #0000001d, -5px 3px 14px 2px #00000018;
     --elevation-light: 0 2px 4px -1px #00000029, 0 4px 5px #0000001d, 0 1px 10px #00000018;
     --elevation-heavy: 0 5px 5px -3px #00000029, 0 8px 10px 1px #0000001d, 0 3px 14px 2px #00000018;
     --ripple-color: rgba(36, 41 ,46, 0.3);
+    --error-color: #B00020;
+    --error-on-error-background-color: #ffffff;
+    --polygon-scatter: url('/assets/polygon-scatter-haikei.svg');
+}
+
+html, body {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: var(--polygon-scatter) repeat, var(--background);
+    background-size: contain;
 }
 
 /**
@@ -89,4 +104,13 @@
 }
 .mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary {
     text-shadow: 0 0 4px rgba(195, 195, 195, 0.3);
+}
+
+// Demo Snackbar Styles
+.demo-snackbar.mat-snack-bar-container {
+    background: var(--error-color);
+    color: var(--error-on-error-background-color);
+}
+.demo-snackbar .mat-button-wrapper {
+    color: var(--error-on-error-background-color);
 }

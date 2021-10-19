@@ -36,12 +36,3 @@ $confin-theme: mat-light-theme((
 @import "~ag-grid-community/src/styles/ag-grid.scss";
 @import "~ag-grid-community/src/styles/ag-theme-alpine-dark/sass/ag-theme-alpine-dark";
 @import "~ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine";
-
-html, body {
-    height: 100%;
-    scroll-behavior: smooth;
-}
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-}

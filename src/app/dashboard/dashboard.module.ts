@@ -12,10 +12,14 @@ import { MatRippleModule } from '@angular/material/core';
 import { A11yModule } from '@angular/cdk/a11y';
 import { CardModule } from '../shared/card/card.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AccountComponent } from './dialogs/account/account.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
     declarations: [
         DashboardComponent,
+        AccountComponent,
     ],
     imports: [
         CommonModule,
@@ -29,6 +33,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         A11yModule,
         CardModule,
         FlexLayoutModule,
+        MatDialogModule,
+        MatSnackBarModule
     ],
     exports: [
         CommonModule,

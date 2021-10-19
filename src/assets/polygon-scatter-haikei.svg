@@ -1,0 +1,65 @@
+<svg id="visual" viewBox="0 0 960 540" width="960" height="540" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+    <rect width="960" height="540" fill="transparent"></rect>
+    <g>
+        <g transform="translate(80 214)">
+            <path d="M0 -12.8L11.1 -6.4L11.1 6.4L0 12.8L-11.1 6.4L-11.1 -6.4Z" fill="none" stroke="#009688"
+                  stroke-width="1"></path>
+        </g>
+        <g transform="translate(238 128)">
+            <path d="M0 -8L6.9 -4L6.9 4L0 8L-6.9 4L-6.9 -4Z" fill="none" stroke="#009688" stroke-width="1"></path>
+        </g>
+        <g transform="translate(49 204)">
+            <path d="M0 -1L0.9 -0.5L0.9 0.5L0 1L-0.9 0.5L-0.9 -0.5Z" fill="none" stroke="#009688"
+                  stroke-width="1"></path>
+        </g>
+        <g transform="translate(722 446)">
+            <path d="M0 -10L8.7 -5L8.7 5L0 10L-8.7 5L-8.7 -5Z" fill="none" stroke="#009688" stroke-width="1"></path>
+        </g>
+        <g transform="translate(680 482)">
+            <path d="M0 -11L9.5 -5.5L9.5 5.5L0 11L-9.5 5.5L-9.5 -5.5Z" fill="none" stroke="#009688"
+                  stroke-width="1"></path>
+        </g>
+        <g transform="translate(883 393)">
+            <path d="M0 -10L8.7 -5L8.7 5L0 10L-8.7 5L-8.7 -5Z" fill="none" stroke="#009688" stroke-width="1"></path>
+        </g>
+        <g transform="translate(676 190)">
+            <path d="M0 -2L1.7 -1L1.7 1L0 2L-1.7 1L-1.7 -1Z" fill="none" stroke="#009688" stroke-width="1"></path>
+        </g>
+        <g transform="translate(538 382)">
+            <path d="M0 -3L2.6 -1.5L2.6 1.5L0 3L-2.6 1.5L-2.6 -1.5Z" fill="none" stroke="#009688"
+                  stroke-width="1"></path>
+        </g>
+        <g transform="translate(169 87)">
+            <path d="M0 -3L2.6 -1.5L2.6 1.5L0 3L-2.6 1.5L-2.6 -1.5Z" fill="none" stroke="#009688"
+                  stroke-width="1"></path>
+        </g>
+        <g transform="translate(892 26)">
+            <path d="M0 -11L9.5 -5.5L9.5 5.5L0 11L-9.5 5.5L-9.5 -5.5Z" fill="none" stroke="#009688"
+                  stroke-width="1"></path>
+        </g>
+        <g transform="translate(219 365)">
+            <path d="M0 -4L3.5 -2L3.5 2L0 4L-3.5 2L-3.5 -2Z" fill="none" stroke="#009688" stroke-width="1"></path>
+        </g>
+        <g transform="translate(431 487)">
+            <path d="M0 -3L2.6 -1.5L2.6 1.5L0 3L-2.6 1.5L-2.6 -1.5Z" stroke="#009688" fill="none"
+                  stroke-width="1"></path>
+        </g>
+        <g transform="translate(32 363)">
+            <path d="M0 -11L9.5 -5.5L9.5 5.5L0 11L-9.5 5.5L-9.5 -5.5Z" stroke="#009688" fill="none"
+                  stroke-width="1"></path>
+        </g>
+        <g transform="translate(742 61)">
+            <path d="M0 -11L9.5 -5.5L9.5 5.5L0 11L-9.5 5.5L-9.5 -5.5Z" stroke="#009688" fill="none"
+                  stroke-width="1"></path>
+        </g>
+        <g transform="translate(835 76)">
+            <path d="M0 -5L4.3 -2.5L4.3 2.5L0 5L-4.3 2.5L-4.3 -2.5Z" stroke="#009688" fill="none"
+                  stroke-width="1"></path>
+        </g>
+        <g transform="translate(421 317)">
+            <path d="M0 -3L2.6 -1.5L2.6 1.5L0 3L-2.6 1.5L-2.6 -1.5Z" stroke="#009688" fill="none"
+                  stroke-width="1"></path>
+        </g>
+    </g>
+</svg>

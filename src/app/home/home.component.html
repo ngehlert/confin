@@ -10,21 +10,91 @@
     <p>the right way</p>
 </section>
 
-<section class="benefits" #benefits>
+<section class="benefits max-width-section" #benefits>
     <emsi-card [scaleHeight]="true">
-        <ng-container card-title i18n>HOME_BENEFITS_EASY_TITLE</ng-container>
-        <ng-container card-content><p i18n>HOME_BENEFITS_EASY_DESCRIPTION</p></ng-container>
+        <ng-container card-content>
+            <mat-icon>speed</mat-icon>
+            <h2 i18n>HOME_BENEFITS_EASY_TITLE</h2>
+            <p i18n>HOME_BENEFITS_EASY_DESCRIPTION</p>
+        </ng-container>
     </emsi-card>
     <emsi-card [scaleHeight]="true">
-        <ng-container card-title i18n>HOME_BENEFITS_CATEGORIES_TITLE</ng-container>
-        <ng-container card-content><p i18n>HOME_BENEFITS_CATEGORIES_DESCRIPTION</p></ng-container>
+        <ng-container card-content>
+            <mat-icon>insights</mat-icon>
+            <h2 i18n>HOME_BENEFITS_CATEGORIES_TITLE</h2>
+            <p i18n>HOME_BENEFITS_CATEGORIES_DESCRIPTION</p>
+        </ng-container>
     </emsi-card>
     <emsi-card [scaleHeight]="true">
-        <ng-container card-title i18n>HOME_BENEFITS_BUDGET_PLAN_TITLE</ng-container>
-        <ng-container card-content><p i18n>HOME_BENEFITS_BUDGET_PLAN_DESCRIPTION</p></ng-container>
+        <ng-container card-content>
+            <mat-icon>cottage</mat-icon>
+            <h2 i18n>HOME_BENEFITS_BUDGET_PLAN_TITLE</h2>
+            <p i18n>HOME_BENEFITS_BUDGET_PLAN_DESCRIPTION</p>
+        </ng-container>
     </emsi-card>
     <emsi-card [scaleHeight]="true">
-        <ng-container card-title i18n>HOME_BENEFITS_AVAILABILITY_TITLE</ng-container>
-        <ng-container card-content><p i18n>HOME_BENEFITS_AVAILABILITY_DESCRIPTION</p></ng-container>
+        <ng-container card-content>
+            <mat-icon>devices</mat-icon>
+            <h2 i18n>HOME_BENEFITS_AVAILABILITY_TITLE</h2>
+            <p i18n>HOME_BENEFITS_AVAILABILITY_DESCRIPTION</p>
+        </ng-container>
     </emsi-card>
+</section>
+
+<section  class="max-width-section sample-screenshots" #sampleScreenshots>
+    <div class="img-wrapper">
+        <div
+            class="img-expand-animation-wrapper"
+            (mouseenter)="hoveredIndex = 1"
+            (mouseleave)="hoveredIndex = 0"
+        >
+            <div
+                class="img-container img-container--image-1"
+                [class.hover-index-1]="hoveredIndex === 1"
+                [class.hover-index-2]="hoveredIndex === 2"
+                [class.hover-index-3]="hoveredIndex === 3"
+            ></div>
+        </div>
+        <div
+            class="img-expand-animation-wrapper"
+            (mouseenter)="hoveredIndex = 2"
+            (mouseleave)="hoveredIndex = 0"
+        >
+            <div
+                class="img-container img-container--image-2"
+                [class.hover-index-1]="hoveredIndex === 1"
+                [class.hover-index-2]="hoveredIndex === 2"
+                [class.hover-index-3]="hoveredIndex === 3"
+            ></div>
+        </div>
+        <div
+            class="img-expand-animation-wrapper"
+            (mouseenter)="hoveredIndex = 3"
+            (mouseleave)="hoveredIndex = 0"
+        >
+            <div
+                class="img-container img-container--image-3"
+                [class.hover-index-1]="hoveredIndex === 1"
+                [class.hover-index-2]="hoveredIndex === 2"
+                [class.hover-index-3]="hoveredIndex === 3"
+            ></div>
+        </div>
+    </div>
+</section>
+
+<section class="try-demo max-width-section" #tryDemo>
+    <div>
+        <h2 i18n>HOME_SNEAK_PEAK_TITLE</h2>
+        <p i18n>HOME_SNEAK_PEAK_DESCRIPTION</p>
+        <button
+            mat-stroked-button
+            type="button"
+            i18n
+            color="primary"
+            (click)="goToDemoDashboard()"
+        >HOME_SNEAK_PEAK_BUTTON</button>
+    </div>
+    <div>
+        <mat-icon svgIcon="sneak_peak"></mat-icon>
+    </div>
 </section>

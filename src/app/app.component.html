@@ -1,4 +1,4 @@
-<div class="app" appTheme>
+<div class="app" appTheme [attachToBody]="true">
     <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="start center" class="toolbar">
         <a [routerLink]="isLoggedIn() ? 'dashboard' : '/'" class="navigation-link">
             <img src="assets/logo-transparent.png"/>

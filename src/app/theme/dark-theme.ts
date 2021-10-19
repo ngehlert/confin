@@ -27,6 +27,8 @@ export const darkTheme: IThemeOptions = {
         [AvailableProperties.HomeTextColorShadow]: '0 0 8px rgba(0,0,0,0.7), 0 0 8px rgba(0,0,0,0.7), 0 0 8px rgba(0,0,0,0.7), 0 0 8px rgba(0,0,0,0.7)',
         [AvailableProperties.ElevationLight]: '0 3px 5px -1px #ffffff29, 0 6px 10px #ffffff1d, 0 1px 18px #ffffff18',
         [AvailableProperties.ElevationHeavy]: '0 6px 6px -3px #ffffff29, 0 10px 14px 1px #ffffff1d, 0 4px 18px 3px #ffffff18',
-        [AvailableProperties.RippleColor]: 'rgba(201, 209, 201, 0.2)'
+        [AvailableProperties.RippleColor]: 'rgba(201, 209, 201, 0.2)',
+        [AvailableProperties.ErrorColor]: '#CF6679',
+        [AvailableProperties.ErrorOnErrorBackgroundColor]: '#000000',
     }
 };
